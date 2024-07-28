@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" href="../../favicon.png" type="image/x-icon">
-  <title>sample</title>
+  <title>02</title>
   <style>
     body {
       background-color: #252525;
@@ -21,13 +21,73 @@
       margin: 1% 0 6% 0;
       color: antiquewhite;
     }
+
+    a {
+      color: white;
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      margin-top: 3%;
+    }
+
+    table {
+      border-collapse: collapse;
+      border: 1px solid #ccc;
+    }
+
+    td {
+      border: 1px solid #ccc;
+      text-align: center;
+      width: 10em;
+      padding: 2%;
+    }
   </style>
 </head>
 <body>
-  <h1>00</h1>
+  <h1>컴포넌트 관리 - 레이아웃</h1>
   <h4>2024.07.28.일</h4>
-  <p>컴포넌트 관리 - 레이아웃</p>
+  <p>레이아웃 정의 공식 가이드</p>
   <a href="https://developer.apple.com/design/human-interface-guidelines/components"
-  >https://developer.apple.com/design/human-interface-guidelines/components</a>
+  >https://developer.apple.com/design/human-interface-guidelines/components</a><br><br><br>
+  <h3>[part01] Boxes</h3>
+  <p>- 상자 사이즈 작게, padding 적극 이용 <br>
+    - 기본적으로 IOS와 IPadOS는 <span style="color: red;">삼차 배경색 사용</span> (눈에 덜 띄는 색으로 배경 지정)
+  </p><br>
+  <h3>[part02] Collections</h3>
+  <p>- 표준 행, 그리드 레이아웃 사용 (간단한 모양) 패딩 적극 활용<br>
+    - 텍스트 -> 테이블  /  이미지 -> 컬렉션 <br>
+    - 삽입, 삭제, 재정렬에 대한 애니메이션 추가
+    - <span style="color: red;">동적 레이아웃 변경 주의</span>
+  </p><br>
+  <h3>[paer03] Disclosure controls</h3>
+  <p>- 세부 정보는 숨기고 주요 내용에 공개 제어 기능 사용 <br>
+    - swiftUI에서 제공하는 보기 기능
+  </p>
+  <a href="https://developer.apple.com/documentation/SwiftUI/DisclosureGroup"
+  >https://developer.apple.com/documentation/SwiftUI/DisclosureGroup</a><br><br><br>
+  <h3>[part04] Labels</h3>
+  <p>- 개발자 참고 사항이 있음 (swiftUI : Label, Text) <br>
+    - 기본적인 시스템 글꼴 선호 (Dynamic Type)
+  </p>
+  <table>
+    <tr>
+      <td></td>
+      <td>소량</td>
+      <td>대량</td>
+    </tr>
+    <tr>
+      <td>편집 X</td>
+      <td>label</td>
+      <td>text view</td>
+    </tr>
+    <tr>
+      <td>편집 O</td>
+      <td>text field</td>
+      <td>text view</td>
+    </tr>
+  </table>
+  <img src="../assets/02.png" alt="label 추가 자료">
 </body>
 </html>
