@@ -5,22 +5,46 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Portfolio</title>
   <style>
+    @font-face {
+    font-family: 'JalnanGothic';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_231029@1.1/JalnanGothic.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    }
+
+    @font-face {
+      font-family: 'yg-jalnan';
+      src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_four@1.2/JalnanOTF00.woff') format('woff');
+      font-weight: normal;
+      font-style: normal;
+    }
+
     body {
       margin: 0;
       padding: 20px;
-      font-family: Arial, sans-serif;
       display: flex;
+      font-family: 'Noto Sans KR', sans-serif;
       flex-direction: column;
       align-items: center;
       color: #333;
+      background-color: #c9c9c9;
     }
 
     /* Title */
     h1 {
       font-size: 48px;
+      font-family: 'yg-jalnan';
       font-weight: bold;
       text-align: center;
-      margin-bottom: 30px;
+      margin-bottom: 20px;
+    }
+
+    hr {
+      width: 80%;
+      height: 1px;
+      background-color: #000000;
+      border: none;
+      margin-bottom: 50px;
     }
 
     /* Portfolio container */
@@ -28,7 +52,7 @@
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       gap: 20px;
-      width: 80%;
+      width: 65%;
     }
 
     /* Project card */
@@ -43,26 +67,44 @@
     .project h2 {
       font-size: 24px;
       margin: 0 0 10px;
+      font-family: 'JalnanGothic';
+      font-weight: 500;
+      margin-bottom: 0px;
+    }
+
+    strong {
+    font-size: 1.1em; /* 원하는 크기로 조정 (기본 크기의 80%) */
+    }
+
+    .date {
+      font-size: 14px;
+      color: #8b8b8b;
+      margin-top: 5px;
+      margin-bottom: 10px;
     }
 
     .project p {
       margin: 5px 0;
+      font-size: 16px;
+    }
+
+    .small-bullet {
+      font-size: 0.5em; /* 동그라미 기호를 작게 조정 */
     }
 
     /* README button */
     .readme-btn {
       margin-top: 10px;
-      padding: 10px 20px;
-      background-color: #007bff;
-      color: #fff;
-      border: none;
-      border-radius: 4px;
+      padding: 8px 10px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
       cursor: pointer;
       transition: 0.3s;
+      float: right;
     }
 
     .readme-btn:hover {
-      background-color: #0056b3;
+      background-color: #cfcfcf;
     }
 
     /* Modal styling */
@@ -110,35 +152,20 @@
 <body>
   <!-- Title -->
   <h1>PORTFOLIO</h1>
-
+  <hr>
   <!-- Portfolio projects -->
   <div class="portfolio-container">
     <!-- Example project -->
     <div class="project">
-      <h2>Project Title 1</h2>
-      <p><strong>Date:</strong> 2024-11-04</p>
-      <p><strong>Overview:</strong> A brief description of the project.</p>
-      <p><strong>Feature 1:</strong> Feature detail one.</p>
-      <p><strong>Feature 2:</strong> Feature detail two.</p>
-      <p><strong>URL:</strong> <a href="#" target="_blank">Project Link</a></p>
+      <h2>Comon 동아리 페이지</h2>
+      <h4 class="date">2024.04</h4>
+      <p><strong>게시판을 통한 커뮤니티 위주의 전공동아리 메인 페이지</strong></p>
+      <p><span class="small-bullet">●</span> HTML, CSS, JS를 활용한 UI 및 기능 구현</p>
+      <p><span class="small-bullet">●</span> 로그인 사용자에 한해 DB(Mysql)에 게시글 저장</p>
+      <p><strong>URL</strong> <a href="#" target="_blank">Project Link</a></p>
       <button class="readme-btn" 
-              onclick="openModal('Project Title 1', '1내용')">README</button>
+              onclick="openModal('Comon 동아리 페이지', '1내용')">MORE</button>
     </div>
-
-    <!-- Repeat this structure for more projects -->
-    <div class="project">
-      <h2>Project Title 2</h2>
-      <p><strong>Date:</strong> 2024-11-04</p>
-      <p><strong>Overview:</strong> A brief description of the project.</p>
-      <p><strong>Feature 1:</strong> Feature detail one.</p>
-      <p><strong>Feature 2:</strong> Feature detail two.</p>
-      <p><strong>URL:</strong> <a href="#" target="_blank">Project Link</a></p>
-      <button class="readme-btn" 
-              onclick="openModal('Project Title 2', '2내용')">README</button>
-    </div>
-
-    <!-- Add more projects as needed... -->
-  </div>
 
   <!-- Modal -->
   <div class="modal" id="modal">
