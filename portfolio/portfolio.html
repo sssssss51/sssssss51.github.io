@@ -4,472 +4,74 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Portfolio</title>
-  <style>
-    @font-face {
-    font-family: 'JalnanGothic';
-    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_231029@1.1/JalnanGothic.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-    }
-
-    @font-face {
-      font-family: 'yg-jalnan';
-      src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_four@1.2/JalnanOTF00.woff') format('woff');
-      font-weight: normal;
-      font-style: normal;
-    }
-
-    ::-webkit-scrollbar {
-      width: 10px; /* 스크롤바 너비 */
-      height: 4px; /* 가로 스크롤바 높이 */
-    }
-
-    /* 스크롤바 핸들 */
-    ::-webkit-scrollbar-thumb {
-      background-color: #ccc; /* 핸들 색상 */
-      border-radius: 8px; /* 핸들 둥글게 */
-      border: 2px solid #333333; /* 핸들 테두리 */
-    }
-
-    /* 스크롤바 핸들 호버 시 색상 변경 */
-    ::-webkit-scrollbar-thumb:hover {
-      background-color: #fffddf; /* 호버 시 핸들 색상 */
-    }
-
-    body {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 20px;
-      padding-bottom: 0;
-      display: flex;
-      font-family: 'Noto Sans KR', sans-serif;
-      flex-direction: column;
-      align-items: center;
-      background-color: #333333;
-      scroll-behavior: smooth;
-    }
-
-    /* Title */
-    h1 {
-      font-size: 48px;
-      font-family: 'yg-jalnan';
-      font-weight: bold;
-      text-align: center;
-      margin-bottom: 20px;
-      color: #fffddf;
-    }
-
-    hr {
-      width: 80%;
-      height: 1px;
-      background-color: #fffddf;
-      border: none;
-      margin-bottom: 50px;
-    }
-
-    /* Portfolio container */
-    .portfolio-container {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 40px;
-      width: 65%;
-      overflow: hidden;
-    }
-
-    /* Project card */
-    .project {
-      background: transparent;
-      border: 1px solid #fffddf;
-      padding: 20px;
-      border-radius: 8px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      text-align: left;
-      transition: 0.3s;
-    }
-
-    .project:hover {
-      outline: none;
-      box-shadow: 0 0 10px rgba(253, 255, 140, 0.8),
-              0 0 20px rgba(247, 255, 140, 0.6),
-              0 0 30px rgba(253, 255, 140, 0.4),
-              0 0 40px rgba(247, 255, 140, 0.2);
-    }
-
-    .project h2 {
-      font-size: 22px;
-      margin: 0 0 10px;
-      font-family: 'JalnanGothic';
-      font-weight: 500;
-      margin-bottom: 10px;
-      color: rgb(27, 27, 27);
-      padding: 5px 5px 0px 5px;
-      border-radius: 5px;
-      background-color: #fff89d;
-    }
-
-    .titleBox {
-      display: flex;
-      justify-content: space-between;
-    }
-
-    strong {
-    font-size: 1.1em; /* 원하는 크기로 조정 (기본 크기의 80%) */
-    }
-
-    .date {
-      padding: 10px 5px 0px 5px;
-      font-size: 14px;
-      color: #c5c5c5;
-      margin-top: 5px;
-      margin-bottom: 10px;
-    }
-
-    .explain {
-      color: #fffddf;
-      margin-top: 0px;
-      margin-bottom: 5px;
-    }
-
-    .content {
-      margin-top: 5px;
-      font-size: 14px;
-    }
-    
-    ul {
-      margin-bottom: 0;
-      margin-top: 10px;
-      padding-left: 20px;
-      color: #fffddf;
-    }
-
-    .bottom {
-      display: flex;
-      justify-content: space-between;
-    }
-
-    .web {
-      margin: 0;
-      display: flex;
-      align-items: center;
-    }
-
-    .icon {
-      width: 10px;
-      height: 10px;
-      margin-right: 5px;
-    }
-
-    a {
-      color: rgb(161, 218, 255);
-    }
-
-    .box {
-      border: 1px solid #fffddf;
-      padding: 10px;
-      border-radius: 5px;
-      margin-bottom: 10px;
-      height: auto;
-    }
-
-    /* README button */
-    .readme-btn {
-      padding: 8px 10px;
-      border: 1px solid #fffddf;
-      color: #fffddf;
-      border-radius: 10px;
-      cursor: pointer;
-      transition: 0.3s;
-      float: right;
-      background: transparent;
-    }
-
-    .readme-btn:hover {
-      background-color: #fffddf;
-      color: black;
-    }
-
-    /* Modal styling */
-    .modal {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.5);
-      justify-content: center;
-      align-items: center;
-    }
-
-    .modal-content {
-      background-color: #fff;
-      padding: 20px;
-      width: 80%;
-      max-width: 500px;
-      border-radius: 8px;
-      text-align: left;
-    }
-
-    .modal-content h2 {
-      margin-top: 0;
-    }
-
-    .modal-content img {
-      width: 100%;
-      height: auto;
-      margin-bottom: 10px;
-    }
-
-    .close-btn {
-      background: #ff4d4d;
-      color: white;
-      border: none;
-      padding: 5px 10px;
-      cursor: pointer;
-      float: right;
-    }
-
-    footer {
-      background-color: #1a1a1a;
-      color: #ffffff;
-      text-align: center;
-      padding: 20px;
-      margin-top: 60px;
-      width: 100%;
-    }
-
-    @media (max-width: 768px) {
-      body {
-        padding: 10px;
-        padding-bottom: 0;
-      }
-
-      hr {
-        width: 90%;
-      }
-
-      .portfolio-container {
-        width: 90%;
-        grid-template-columns: 1fr;
-      }
-
-      .titleBox {
-        flex-direction: column;
-      }
-
-      .project h2 {
-        font-size: 20px;
-        margin: 0;
-        display: inline-flex; /* 인라인 레벨로 처리 */
-        width: fit-content;
-      }
-
-      .date {
-        margin-top: 0;
-      }
-
-      .project {
-        padding: 15px;
-      }
-
-      .bottom {
-        flex-direction: column;
-        align-items: center;
-      }
-
-      .readme-btn {
-        margin-top: 10px;
-        width: 30%;
-      }
-
-      footer {
-        width: 100vw;
-        padding: 10px 0;
-        font-size: 12px;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="./portfolio.css">
 </head>
 <body>
   <!-- Title -->
   <h1>PORTFOLIO</h1>
   <hr>
-  <!-- Portfolio projects -->
   <div class="portfolio-container">
-    <!-- Example project -->
-    <div class="project">
-      <div class="titleBox">
-        <h2>Comon 동아리 페이지</h2>
-        <h4 class="date">2024.04</h4>
-      </div>
-      <div class="box">
-        <p class="explain"><strong>게시판을 통한 커뮤니티 위주의 전공동아리 메인 페이지</strong></p>
-        <ul>
-          <li class="content">HTML, CSS, JS를 활용한 UI 및 기능 구현</li>
-          <li class="content">로그인 사용자에 한해 DB(Mysql)에 게시글 저장</li>
-        </ul>
-      </div>
-      <div class="bottom">
-        <div class="web"><img src="./arrow.png" alt="arrow" class="icon"><a href="https://comon.kr/" target="_blank">https://comon.kr/</a></div>
-        <button class="readme-btn"
-                onclick="openModal('Comon 동아리 페이지', '1내용')">MORE</button>
-      </div>
-    </div>
-    <div class="project">
-      <div class="titleBox">
-        <h2>Comon 동아리 페이지</h2>
-        <h4 class="date">2024.04</h4>
-      </div>
-      <div class="box">
-        <p class="explain"><strong>게시판을 통한 커뮤니티 위주의 전공동아리 메인 페이지</strong></p>
-        <ul>
-          <li class="content">HTML, CSS, JS를 활용한 UI 및 기능 구현</li>
-          <li class="content">로그인 사용자에 한해 DB(Mysql)에 게시글 저장</li>
-        </ul>
-      </div>
-      <div class="bottom">
-        <div class="web"><img src="./arrow.png" alt="arrow" class="icon"><a href="https://comon.kr/" target="_blank">https://comon.kr/</a></div>
-        <button class="readme-btn"
-                onclick="openModal('Comon 동아리 페이지', '1내용')">MORE</button>
-      </div>
-    </div>
-    <div class="project">
-      <div class="titleBox">
-        <h2>Comon 동아리 페이지</h2>
-        <h4 class="date">2024.04</h4>
-      </div>
-      <div class="box">
-        <p class="explain"><strong>게시판을 통한 커뮤니티 위주의 전공동아리 메인 페이지</strong></p>
-        <ul>
-          <li class="content">HTML, CSS, JS를 활용한 UI 및 기능 구현</li>
-          <li class="content">로그인 사용자에 한해 DB(Mysql)에 게시글 저장</li>
-        </ul>
-      </div>
-      <div class="bottom">
-        <div class="web"><img src="./arrow.png" alt="arrow" class="icon"><a href="https://comon.kr/" target="_blank">https://comon.kr/</a></div>
-        <button class="readme-btn"
-                onclick="openModal('Comon 동아리 페이지', '1내용')">MORE</button>
-      </div>
-    </div>
-    <div class="project">
-      <div class="titleBox">
-        <h2>Comon 동아리 페이지</h2>
-        <h4 class="date">2024.04</h4>
-      </div>
-      <div class="box">
-        <p class="explain"><strong>게시판을 통한 커뮤니티 위주의 전공동아리 메인 페이지</strong></p>
-        <ul>
-          <li class="content">HTML, CSS, JS를 활용한 UI 및 기능 구현</li>
-          <li class="content">로그인 사용자에 한해 DB(Mysql)에 게시글 저장</li>
-        </ul>
-      </div>
-      <div class="bottom">
-        <div class="web"><img src="./arrow.png" alt="arrow" class="icon"><a href="https://comon.kr/" target="_blank">https://comon.kr/</a></div>
-        <button class="readme-btn"
-                onclick="openModal('Comon 동아리 페이지', '1내용')">MORE</button>
-      </div>
-    </div>
-    <div class="project">
-      <div class="titleBox">
-        <h2>Comon 동아리 페이지</h2>
-        <h4 class="date">2024.04</h4>
-      </div>
-      <div class="box">
-        <p class="explain"><strong>게시판을 통한 커뮤니티 위주의 전공동아리 메인 페이지</strong></p>
-        <ul>
-          <li class="content">HTML, CSS, JS를 활용한 UI 및 기능 구현</li>
-          <li class="content">로그인 사용자에 한해 DB(Mysql)에 게시글 저장</li>
-        </ul>
-      </div>
-      <div class="bottom">
-        <div class="web"><img src="./arrow.png" alt="arrow" class="icon"><a href="https://comon.kr/" target="_blank">https://comon.kr/</a></div>
-        <button class="readme-btn"
-                onclick="openModal('Comon 동아리 페이지', '1내용')">MORE</button>
-      </div>
-    </div>
-    <div class="project">
-      <div class="titleBox">
-        <h2>Comon 동아리 페이지</h2>
-        <h4 class="date">2024.04</h4>
-      </div>
-      <div class="box">
-        <p class="explain"><strong>게시판을 통한 커뮤니티 위주의 전공동아리 메인 페이지</strong></p>
-        <ul>
-          <li class="content">HTML, CSS, JS를 활용한 UI 및 기능 구현</li>
-          <li class="content">로그인 사용자에 한해 DB(Mysql)에 게시글 저장</li>
-        </ul>
-      </div>
-      <div class="bottom">
-        <div class="web"><img src="./arrow.png" alt="arrow" class="icon"><a href="https://comon.kr/" target="_blank">https://comon.kr/</a></div>
-        <button class="readme-btn"
-                onclick="openModal('Comon 동아리 페이지', '1내용')">MORE</button>
-      </div>
-    </div>
-    <div class="project">
-      <div class="titleBox">
-        <h2>Comon 동아리 페이지</h2>
-        <h4 class="date">2024.04</h4>
-      </div>
-      <div class="box">
-        <p class="explain"><strong>게시판을 통한 커뮤니티 위주의 전공동아리 메인 페이지</strong></p>
-        <ul>
-          <li class="content">HTML, CSS, JS를 활용한 UI 및 기능 구현</li>
-          <li class="content">로그인 사용자에 한해 DB(Mysql)에 게시글 저장</li>
-        </ul>
-      </div>
-      <div class="bottom">
-        <div class="web"><img src="./arrow.png" alt="arrow" class="icon"><a href="https://comon.kr/" target="_blank">https://comon.kr/</a></div>
-        <button class="readme-btn"
-                onclick="openModal('Comon 동아리 페이지', '1내용')">MORE</button>
-      </div>
-    </div>
-    <div class="project">
-      <div class="titleBox">
-        <h2>Comon 동아리 페이지</h2>
-        <h4 class="date">2024.04</h4>
-      </div>
-      <div class="box">
-        <p class="explain"><strong>게시판을 통한 커뮤니티 위주의 전공동아리 메인 페이지</strong></p>
-        <ul>
-          <li class="content">HTML, CSS, JS를 활용한 UI 및 기능 구현</li>
-          <li class="content">로그인 사용자에 한해 DB(Mysql)에 게시글 저장</li>
-        </ul>
-      </div>
-      <div class="bottom">
-        <div class="web"><img src="./arrow.png" alt="arrow" class="icon"><a href="https://comon.kr/" target="_blank">https://comon.kr/</a></div>
-        <button class="readme-btn"
-                onclick="openModal('Comon 동아리 페이지', '1내용')">MORE</button>
-      </div>
-    </div>
-    <div class="project">
-      <div class="titleBox">
-        <h2>Comon 동아리 페이지</h2>
-        <h4 class="date">2024.04</h4>
-      </div>
-      <div class="box">
-        <p class="explain"><strong>게시판을 통한 커뮤니티 위주의 전공동아리 메인 페이지</strong></p>
-        <ul>
-          <li class="content">HTML, CSS, JS를 활용한 UI 및 기능 구현</li>
-          <li class="content">로그인 사용자에 한해 DB(Mysql)에 게시글 저장</li>
-        </ul>
-      </div>
-      <div class="bottom">
-        <div class="web"><img src="./arrow.png" alt="arrow" class="icon"><a href="https://comon.kr/" target="_blank">https://comon.kr/</a></div>
-        <button class="readme-btn"
-                onclick="openModal('Comon 동아리 페이지', '1내용')">MORE</button>
-      </div>
-    </div>
+    <!-- Portfolio projects -->
+    <script>
+      const projects = [
+        {
+          title: "Comon 동아리 페이지",
+          date: "2024.04",
+          description: "게시판을 통한 커뮤니티 위주의 전공동아리 메인 페이지",
+          details: [
+            "HTML, CSS, JS를 활용한 UI 및 기능 구현",
+            "로그인 사용자에 한해 DB(Mysql)에 게시글 저장"
+          ],
+          link: "https://comon.kr/",
+          modalContent: "1내용"
+        },
+        {
+          title: "Comon 동아리 페이지",
+          date: "2024.04",
+          description: "게시판을 통한 커뮤니티 위주의 전공동아리 메인 페이지",
+          details: [
+            "HTML, CSS, JS를 활용한 UI 및 기능 구현",
+            "로그인 사용자에 한해 DB(Mysql)에 게시글 저장"
+          ],
+          link: "https://comon.kr/",
+          modalContent: "1내용"
+        },
+      ];
+  
+      projects.forEach(project => {
+        document.write(`
+          <div class="project">
+            <div class="titleBox">
+              <h2>${project.title}</h2>
+              <h4 class="date">${project.date}</h4>
+            </div>
+            <div class="box">
+              <p class="explain"><strong>${project.description}</strong></p>
+              <ul>
+                ${project.details.map(detail => `<li class="content">${detail}</li>`).join('')}
+              </ul>
+            </div>
+            <div class="bottom">
+              <div class="web"><img src="./arrow.png" alt="Link to ${project.title}" class="icon"><a href="${project.link}" target="_blank">${project.link}</a></div>
+              <button class="readme-btn" onclick="openModal('${project.title}', '${project.modalContent}')">MORE</button>
+            </div>
+          </div>
+        `);
+      });
+    </script>
   </div>
   <footer>
     <p>&copy; 2024 hs101. All Rights Reserved.</p>
   </footer>
   <!-- Modal -->
-  <div class="modal" id="modal">
-    <div class="modal-content">
-      <button class="close-btn" onclick="closeModal()">Close</button>
+  <div class="modal" id="modal" onclick="closeModal(event)">
+    <div class="modal-content" onclick="event.stopPropagation()">
+      <button class="close-btn" onclick="closeModal(event)">
+        <img src="./close.png" alt="close">
+      </button>
       <h2 id="modal-title">Project Title</h2>
       <img src="project-image.jpg" alt="Project Image">
-      <p id="modal-description">More detailed description about the project goes here.</p>
+      <p id="modal-description"></p>
     </div>
   </div>
 
@@ -481,7 +83,10 @@
       document.getElementById("modal-description").innerText = projectDescription;
     }
   
-    function closeModal() {
+    function closeModal(event) {
+      if (event) {
+        event.stopPropagation(); // Prevent event from bubbling up
+      }
       document.getElementById("modal").style.display = "none";
     }
   </script>  
