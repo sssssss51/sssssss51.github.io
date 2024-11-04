@@ -80,14 +80,6 @@
     transition: 0.3s;
   }
 
-  .project:hover {
-    outline: none;
-    box-shadow: 0 0 10px rgba(253, 255, 140, 0.8),
-            0 0 20px rgba(247, 255, 140, 0.6),
-            0 0 30px rgba(253, 255, 140, 0.4),
-            0 0 40px rgba(247, 255, 140, 0.2);
-  }
-
   .project h2 {
     font-size: 22px;
     margin: 0 0 10px;
