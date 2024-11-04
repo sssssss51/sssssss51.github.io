@@ -26,8 +26,7 @@
       font-family: 'Noto Sans KR', sans-serif;
       flex-direction: column;
       align-items: center;
-      color: #333;
-      background-color: #c9c9c9;
+      background-color: #333333;
     }
 
     /* Title */
@@ -37,12 +36,13 @@
       font-weight: bold;
       text-align: center;
       margin-bottom: 20px;
+      color: #fffddf;
     }
 
     hr {
       width: 80%;
       height: 1px;
-      background-color: #000000;
+      background-color: #fffddf;
       border: none;
       margin-bottom: 50px;
     }
@@ -57,19 +57,38 @@
 
     /* Project card */
     .project {
-      background-color: #f5f5f5;
+      background: transparent;
+      border: 1px solid #fffddf;
       padding: 20px;
       border-radius: 8px;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
       text-align: left;
+      transition: 0.3s;
+    }
+
+    .project:hover {
+      outline: none;
+      box-shadow: 0 0 10px rgba(253, 255, 140, 0.8),
+              0 0 20px rgba(247, 255, 140, 0.6),
+              0 0 30px rgba(253, 255, 140, 0.4),
+              0 0 40px rgba(247, 255, 140, 0.2);
     }
 
     .project h2 {
-      font-size: 24px;
+      font-size: 22px;
       margin: 0 0 10px;
       font-family: 'JalnanGothic';
       font-weight: 500;
-      margin-bottom: 5px;
+      margin-bottom: 10px;
+      color: rgb(27, 27, 27);
+      padding: 5px 5px 0px 5px;
+      border-radius: 5px;
+      background-color: #fff89d;
+    }
+
+    .titleBox {
+      display: flex;
+      justify-content: space-between;
     }
 
     strong {
@@ -77,49 +96,75 @@
     }
 
     .date {
+      padding: 10px 5px 0px 5px;
       font-size: 14px;
-      color: #8b8b8b;
+      color: #c5c5c5;
       margin-top: 5px;
       margin-bottom: 10px;
     }
 
-    .title {
+    .explain {
+      color: #fffddf;
       margin-top: 0px;
       margin-bottom: 5px;
     }
 
     .content {
-      margin: 5px 0;
+      margin-top: 5px;
       font-size: 14px;
     }
-
-    .small-bullet {
-      font-size: 0.5em; /* 동그라미 기호를 작게 조정 */
-    }
     
+    ul {
+      margin-bottom: 0;
+      margin-top: 10px;
+      padding-left: 20px;
+      color: #fffddf;
+    }
+
+    .bottom {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .web {
+      margin: 0;
+      display: flex;
+      align-items: center;
+    }
+
+    .icon {
+      width: 10px;
+      height: 10px;
+      margin-right: 5px;
+    }
+
     a {
-      color: rgb(35, 90, 255);
+      color: rgb(161, 218, 255);
     }
 
     .box {
-      border: 1px solid #ccc;
+      border: 1px solid #fffddf;
       padding: 10px;
       border-radius: 5px;
       margin-bottom: 10px;
+      height: auto;
     }
 
     /* README button */
     .readme-btn {
       padding: 8px 10px;
-      border: 1px solid #ccc;
+      border: 1px solid #fffddf;
+      color: #fffddf;
       border-radius: 10px;
       cursor: pointer;
       transition: 0.3s;
       float: right;
+      background: transparent;
     }
 
     .readme-btn:hover {
-      background-color: #cfcfcf;
+      background-color: #fffddf;
+      color: black;
     }
 
     /* Modal styling */
@@ -162,6 +207,50 @@
       cursor: pointer;
       float: right;
     }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 10px;
+      }
+
+      hr {
+        width: 90%;
+      }
+
+      .portfolio-container {
+        width: 90%;
+        grid-template-columns: 1fr;
+      }
+
+      .titleBox {
+        flex-direction: column;
+      }
+
+      .project h2 {
+        font-size: 20px;
+        margin: 0;
+        display: inline-flex; /* 인라인 레벨로 처리 */
+        width: fit-content;
+      }
+
+      .date {
+        margin-top: 0;
+      }
+
+      .project {
+        padding: 15px;
+      }
+
+      .bottom {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .readme-btn {
+        margin-top: 10px;
+        width: 30%;
+      }
+    }
   </style>
 </head>
 <body>
@@ -172,16 +261,22 @@
   <div class="portfolio-container">
     <!-- Example project -->
     <div class="project">
-      <h2>Comon 동아리 페이지</h2>
-      <h4 class="date">2024.04</h4>
-      <div class="box">
-        <p class="title"><strong>게시판을 통한 커뮤니티 위주의 전공동아리 메인 페이지</strong></p>
-        <p class="content"><span class="small-bullet">●</span> HTML, CSS, JS를 활용한 UI 및 기능 구현</p>
-        <p class="content"><span class="small-bullet">●</span> 로그인 사용자에 한해 DB(Mysql)에 게시글 저장</p>
-        <a href="https://comon.kr/" target="_blank">https://comon.kr/</a>
+      <div class="titleBox">
+        <h2>Comon 동아리 페이지</h2>
+        <h4 class="date">2024.04</h4>
       </div>
-      <button class="readme-btn"
-              onclick="openModal('Comon 동아리 페이지', '1내용')">MORE</button>
+      <div class="box">
+        <p class="explain"><strong>게시판을 통한 커뮤니티 위주의 전공동아리 메인 페이지</strong></p>
+        <ul>
+          <li class="content">HTML, CSS, JS를 활용한 UI 및 기능 구현</li>
+          <li class="content">로그인 사용자에 한해 DB(Mysql)에 게시글 저장</li>
+        </ul>
+      </div>
+      <div class="bottom">
+        <div class="web"><img src="./arrow.png" alt="arrow" class="icon"><a href="https://comon.kr/" target="_blank">https://comon.kr/</a></div>
+        <button class="readme-btn"
+                onclick="openModal('Comon 동아리 페이지', '1내용')">MORE</button>
+      </div>
     </div>
 
   <!-- Modal -->
