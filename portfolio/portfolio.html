@@ -69,7 +69,7 @@
       margin: 0 0 10px;
       font-family: 'JalnanGothic';
       font-weight: 500;
-      margin-bottom: 0px;
+      margin-bottom: 5px;
     }
 
     strong {
@@ -83,18 +83,33 @@
       margin-bottom: 10px;
     }
 
-    .project p {
+    .title {
+      margin-top: 0px;
+      margin-bottom: 5px;
+    }
+
+    .content {
       margin: 5px 0;
-      font-size: 16px;
+      font-size: 14px;
     }
 
     .small-bullet {
       font-size: 0.5em; /* 동그라미 기호를 작게 조정 */
     }
+    
+    a {
+      color: rgb(35, 90, 255);
+    }
+
+    .box {
+      border: 1px solid #ccc;
+      padding: 10px;
+      border-radius: 5px;
+      margin-bottom: 10px;
+    }
 
     /* README button */
     .readme-btn {
-      margin-top: 10px;
       padding: 8px 10px;
       border: 1px solid #ccc;
       border-radius: 10px;
@@ -159,11 +174,13 @@
     <div class="project">
       <h2>Comon 동아리 페이지</h2>
       <h4 class="date">2024.04</h4>
-      <p><strong>게시판을 통한 커뮤니티 위주의 전공동아리 메인 페이지</strong></p>
-      <p><span class="small-bullet">●</span> HTML, CSS, JS를 활용한 UI 및 기능 구현</p>
-      <p><span class="small-bullet">●</span> 로그인 사용자에 한해 DB(Mysql)에 게시글 저장</p>
-      <p><strong>URL</strong> <a href="#" target="_blank">Project Link</a></p>
-      <button class="readme-btn" 
+      <div class="box">
+        <p class="title"><strong>게시판을 통한 커뮤니티 위주의 전공동아리 메인 페이지</strong></p>
+        <p class="content"><span class="small-bullet">●</span> HTML, CSS, JS를 활용한 UI 및 기능 구현</p>
+        <p class="content"><span class="small-bullet">●</span> 로그인 사용자에 한해 DB(Mysql)에 게시글 저장</p>
+        <a href="https://comon.kr/" target="_blank">https://comon.kr/</a>
+      </div>
+      <button class="readme-btn"
               onclick="openModal('Comon 동아리 페이지', '1내용')">MORE</button>
     </div>
 
