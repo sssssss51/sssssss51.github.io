@@ -37,6 +37,7 @@
     }
 
     body {
+      box-sizing: border-box;
       margin: 0;
       padding: 20px;
       padding-bottom: 0;
@@ -72,6 +73,7 @@
       grid-template-columns: repeat(2, 1fr);
       gap: 40px;
       width: 65%;
+      overflow: hidden;
     }
 
     /* Project card */
@@ -228,12 +230,12 @@
     }
 
     footer {
-      width: 100%;
       background-color: #1a1a1a;
       color: #ffffff;
       text-align: center;
       padding: 20px;
       margin-top: 60px;
+      width: 100%;
     }
 
     @media (max-width: 768px) {
@@ -281,7 +283,8 @@
       }
 
       footer {
-        padding: 10px 20px;
+        width: 100vw;
+        padding: 10px 0;
         font-size: 12px;
       }
     }
